@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.khoshrang.forexquiz.ui.HomeFragment"
+        android:label="@string/appName"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_testFragment"
+            app:destination="@id/testFragment"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToSaveState="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.khoshrang.forexquiz.ui.EducationFragment"
+        android:label="@string/fragmentBookLabel"
+        tools:layout="@layout/fragment_education">
+        <action
+            android:id="@+id/action_navigation_dashboard_to_bookFragment"
+            app:destination="@id/bookFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.khoshrang.forexquiz.ui.SettingsFragment"
+        android:label="@string/fragmentSettingsLabel"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.khoshrang.forexquiz.ui.ResultFragment"
+        android:label="@string/fragmentResultLabel"
+        tools:layout="@layout/fragment_result">
+        <action
+            android:id="@+id/action_resultFragment_to_navigation_home"
+            app:destination="@id/navigation_home"
+
+            />
+        <action
+            android:id="@+id/action_resultFragment_to_testFragment"
+            app:destination="@id/testFragment"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToSaveState="true" />
+        <argument
+            android:name="testName"
+            android:defaultValue="azmoon1"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/testFragment"
+        android:name="com.khoshrang.forexquiz.ui.QuizletFragment"
+        android:label="@string/fragmentTestLabel"
+        tools:layout="@layout/fragment_quizlet">
+        <action
+            android:id="@+id/action_testFragment_to_resultFragment"
+            app:destination="@id/resultFragment"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToSaveState="true" />
+        <action
+            android:id="@+id/action_testFragment_to_navigation_home"
+            app:destination="@id/navigation_home"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToSaveState="true" />
+        <argument
+            android:name="testName"
+            android:defaultValue="test1"
+            app:argType="string" />
+        <argument
+            android:name="isResult"
+            android:defaultValue="false"
+            app:argType="boolean" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookFragment"
+        android:name="com.khoshrang.forexquiz.ui.BookFragment"
+        android:label="@string/fragmentBookLabel"
+        tools:layout="@layout/fragment_book">
+        <action
+            android:id="@+id/action_bookFragment_to_navigation_dashboard"
+            app:destination="@id/navigation_dashboard" />
+        <argument
+            android:name="bookid"
+            android:defaultValue="1"
+            app:argType="integer" />
+    </fragment>
+</navigation>
