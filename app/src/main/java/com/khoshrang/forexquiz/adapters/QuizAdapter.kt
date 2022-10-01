@@ -15,7 +15,7 @@ import com.khoshrang.forexquiz.ui.HomeFragmentDirections
 
 /**
  * adapter for HomeFragment
- * prepares data of quizzes from assets
+ * prepares data of quizzes from assets csv
  */
 
 class QuizAdapter(
